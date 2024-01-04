@@ -25,8 +25,7 @@ class Solution:
                     
 
         return False
-    
-'''
+    '''
 Time Complexity:
 
 The outer for loop iterates over each index in the nums list, which takes O(n) time, where n is the size of the list.
@@ -40,21 +39,22 @@ Additionally, a few variables like size and prev are used, but they take constan
 Hence, the overall space complexity is O(n).
 
 '''
+
     
     def circularArrayLoop(nums):
         def move(i):
-        return (i + nums[i]) % len(nums)
+            return (i + nums[i]) % len(nums)
 
-    for i in range(len(nums)):
-        slow = fast = i
-        while True:
-            slow = move(slow)
-            fast = move(move(fast))
-            if slow == fast and nums[slow] * nums[i] > 0:
-                return True
-            if slow == fast or nums[slow] * nums[i] < 0:
-                break
-    return False
+        for i in range(len(nums)):
+            slow = fast = i
+            while True:
+                slow = move(slow)
+                fast = move(move(fast))
+                if slow == fast and nums[slow] * nums[i] > 0:
+                    return True
+                if slow == fast or nums[slow] * nums[i] < 0:
+                    break
+        return False
 
 '''
 Time Complexity: The algorithm uses the Floyd's cycle-finding algorithm to detect cycles in the array. In the worst case scenario, the algorithm visits each index in the array once, and for each index, it traverses a part of the cycle. Therefore, the overall time complexity is O(n), where n is the size of the input array nums.
