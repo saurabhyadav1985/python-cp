@@ -25,28 +25,38 @@ class Solution:
                     
 
         return False
-        
+    
 '''
-This algorithm basically iterates over each index in the array, visiting each index once. It checks for cyclic patterns using a set to track visited indices in the current cycle. If a circular loop is detected, it returns True, otherwise False. 
+Time Complexity:
 
-The time complexity of the given algorithm is O(n^2), where n is the size of the input list nums. This is because the algorithm uses nested loops: the outer for loop iterates n times (where n is the size of nums), and the inner while loop can also iterate up to n times in the worst case.
+The outer for loop iterates over each index in the nums list, which takes O(n) time, where n is the size of the list.
+Inside the for loop, the while loop runs until it breaks, which happens in one of two cases: a unicycle is detected (prev == i) or there is a sign difference between nums[prev] and nums[i].
+In the worst case scenario, the while loop iterates up to n times, considering all elements are part of a single cycle. However, in practice, the while loop typically iterates much fewer times, depending on the structure of the input.
+Therefore, the overall time complexity is O(n) in the worst case.
+Space Complexity:
 
-The space complexity of the algorithm is O(n), where n is the size of nums. This is because the algorithm uses additional sets (visited and cycle_set) to store visited indices. The space required by these sets grows linearly with the size of nums.
+The algorithm uses a few sets (visited and cycle_set) to keep track of visited indices. The maximum number of elements that can be stored in these sets is bounded by the size of the input, so the space complexity is O(n), where n is the size of the input list nums.
+Additionally, a few variables like size and prev are used, but they take constant space regardless of the input size.
+Hence, the overall space complexity is O(n).
 
-Overall, the algorithm has a quadratic time complexity due to the nested loops, and a linear space complexity. Depending on the size of the input, it may not be the most efficient solution for large arrays.
 '''
-
-    def betterSolution(self, nums: List[int]) -> bool:
+    
+    def circularArrayLoop(nums):
         def move(i):
-            return (i + nums[i]) % len(nums)
-            
-        for i in range(len(nums)):
-            slow = fast = i
-            while True:
-                slow = move(slow)
-                fast = move(move(fast))
-                if(slow ==fast and nums[slow] * nums[i] > 0):
-                    return True
-                if(slow ==fast or nums[slow] * nums[i] < 0):
-                    break
-        return False
+        return (i + nums[i]) % len(nums)
+
+    for i in range(len(nums)):
+        slow = fast = i
+        while True:
+            slow = move(slow)
+            fast = move(move(fast))
+            if slow == fast and nums[slow] * nums[i] > 0:
+                return True
+            if slow == fast or nums[slow] * nums[i] < 0:
+                break
+    return False
+
+'''
+Time Complexity: The algorithm uses the Floyd's cycle-finding algorithm to detect cycles in the array. In the worst case scenario, the algorithm visits each index in the array once, and for each index, it traverses a part of the cycle. Therefore, the overall time complexity is O(n), where n is the size of the input array nums.
+
+Space Complexity: The algorithm uses only a constant amount of extra space, independent of the size of the input array. Hence, the space complexity is O(1).'''
