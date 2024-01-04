@@ -35,3 +35,18 @@ The space complexity of the algorithm is O(n), where n is the size of nums. This
 
 Overall, the algorithm has a quadratic time complexity due to the nested loops, and a linear space complexity. Depending on the size of the input, it may not be the most efficient solution for large arrays.
 '''
+
+    def betterSolution(self, nums: List[int]) -> bool:
+        def move(i):
+            return (i + nums[i]) % len(nums)
+            
+        for i in range(len(nums)):
+            slow = fast = i
+            while True:
+                slow = move(slow)
+                fast = move(move(fast))
+                if(slow ==fast and nums[slow] * nums[i] > 0):
+                    return True
+                if(slow ==fast or nums[slow] * nums[i] < 0):
+                    break
+        return False
