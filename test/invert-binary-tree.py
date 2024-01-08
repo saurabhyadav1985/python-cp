@@ -12,20 +12,12 @@ class TreeNode:
         self.val = val
         self.left = None
         self.right = None
-        
+
+class Solution:
     def invertTree(self, root):
-        if not root:
-            return None
-        
-        output = TreeNode(root.val)
-        
-        if root.left:
-            output.right = invertTree(root.left)
-        if root.right:
-            output.left = invertTree(root.right)
-        
-        return output
-        
+        if root:
+            root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+        return root
         
     def traverse(self, root):
         if not root:
@@ -51,5 +43,6 @@ class TreeNode:
     root.left.right = TreeNode(3)
     root.right.left = TreeNode(6)
     root.right.right = TreeNode(9)
-    inverted_tree = invertTree()
+    
+    inverted_tree = invertTree( root )
     print(traverse(inverted_tree))
