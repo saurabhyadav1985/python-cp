@@ -38,3 +38,17 @@ Complexity Analysis:
 The time complexity of this approach is O(n + m), where n and m are the lengths of nums1 and nums2 respectively. Constructing the hash sets takes O(n + m) time, and finding the intersection runs in O(min(n, m)) time.
 The space complexity is O(min(n, m)), as it depends on the smaller of the two arrays. This accounts for the space used by the hash sets and the resulting intersection list.
 '''
+
+
+Hi Customer Service Team,
+
+My contract reference number is 7019.0221.11, and I have been living in Spandauer damm 217 since November 2021. 
+
+I am moving to India, to spend time with my family and would like to sublet my apartment. I am attaching my ticket to go to India. 
+
+Please find attached the application and documents of potential candidates. Kindly review my application and request you to approve soon.
+
+Please let me know if anything else is required.
+
+Thanks,
+Saurabh
