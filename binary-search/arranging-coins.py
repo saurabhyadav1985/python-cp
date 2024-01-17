@@ -26,10 +26,12 @@ We initialize two pointers, left and right, to represent the lower and upper bou
 While the left pointer is less than or equal to the right pointer:
 Calculate the midpoint of the range using the formula (left + right) // 2.
 Compute the number of coins that would be required to build mid rows using the formula curr = (mid * (mid + 1)) // 2.
+
 Compare curr with the given number of coins n.
-If curr is equal to n, we have found the exact number of complete rows, so we return mid.
-If curr is less than n, we update left = mid + 1 to search for more rows.
-If curr is greater than n, we update right = mid - 1 to reduce the number of rows in the search range.
+    If curr is equal to n, we have found the exact number of complete rows, so we return mid.
+    If curr is less than n, we update left = mid + 1 to search for more rows.
+    If curr is greater than n, we update right = mid - 1 to reduce the number of rows in the search range.
+
 Finally, we return the value of right, which represents the largest number of complete rows that can be built within the given number of coins.
 
 Complexity Analysis:
