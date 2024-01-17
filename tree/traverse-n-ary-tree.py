@@ -29,4 +29,6 @@ Complexity Analysis:
 
 The time complexity of this approach is O(n), where n is the total number of nodes in the n-ary tree. We need to visit every node once in the worst case.
 The space complexity is O(n), as we use additional space to store the result list. In the worst case, the result list may contain all the nodes' values.
+
+If using iterative approach you need to use Stack.
 '''
