@@ -29,10 +29,6 @@ def nextGreaterElement(nums1, nums2):
             next_greater[stack.pop()] = num
         stack.append(num)
 
-    # For elements left in the stack, there is no next greater element
-    for num in stack:
-        next_greater[num] = -1
-
     # Create the result array by looking up the next greater element for each element in nums1
     ans = [next_greater.get(num, -1) for num in nums1]
     
