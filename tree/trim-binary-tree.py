@@ -44,3 +44,8 @@ The time complexity of the solution is O(n), where n is the number of nodes in t
 The space complexity is O(h), where h is the height of the tree. This is due to the recursive calls on the stack. In the worst case, for a skewed tree, the space complexity becomes O(n), but for a balanced tree, it is typically O(log n).
 This solution trims the given binary search tree while maintaining the relative structure of all nodes within the specified range.
 '''
+
+ 
+ 
+08068075001
+
